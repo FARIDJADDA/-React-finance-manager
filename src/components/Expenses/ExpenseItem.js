@@ -1,4 +1,4 @@
-import Card from "../layout/Card";
+import Card from "../UI/Card";
 import Date from "./date/Date";
 import styles from "./ExpenseItem.module.css";
 
