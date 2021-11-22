@@ -1,4 +1,4 @@
-import classes from "./Date.module.css";
+import classes from "./ExpenseDate.module.css";
 
 function Date(props) {
   const month = props.date.toLocaleString("fr-FR", { month: "long" });
