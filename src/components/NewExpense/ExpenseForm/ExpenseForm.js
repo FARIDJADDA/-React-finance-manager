@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import classes from "./ExpenseForm.module.css";
 
 const ExpenseForm = () => {
@@ -40,8 +41,20 @@ const ExpenseForm = () => {
     console.log(e.target.value);
   };
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    const expenseData = {
+      title: enteredTitle,
+      amount: enteredAmount,
+      date: new Date(enteredDate),
+    };
+
+    console.log(expenseData);
+  };
+
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className={classes.new_expense__controls}>
         <div className={classes.new_expense__control}>
           <label>Title</label>
