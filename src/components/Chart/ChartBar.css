@@ -18,7 +18,7 @@
 }
 
 .chart-bar__fill {
-  background-color: #4826b9;
+  background-color: rgb(74, 182, 182);
   width: 100%;
   transition: all 0.3s ease-out;
 }
