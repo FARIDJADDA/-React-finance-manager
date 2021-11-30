@@ -6,30 +6,10 @@ const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
-
-  /**Un seul state commun */
-  // const [userInput, setUserInput] = useState({
-  //   enteredTitle: "",
-  //   enteredAmount: "",
-  //   enteredDate: "",
-  // });
+  const [openAddNewExpenseForm, setOpenAddNewExpenseForm] = useState(false);
 
   const titleChangeHandler = (e) => {
     setEnteredTitle(e.target.value);
-
-    /* Si un state mis à jours ne dépend pas du précédent */
-
-    // setUserInput({
-    //   ...userInput,
-    //   enteredTitle: e.target.value,
-    // });
-
-    /* Si un state mis à jours dépend du précédent */
-
-    //   setUserInput((prevState) => {
-    //     return { ...prevState, enteredTitle: e.target.value };
-    //   });
-    // };
   };
   const amountChangeHandler = (e) => {
     setEnteredAmount(e.target.value);
@@ -53,8 +33,20 @@ const ExpenseForm = (props) => {
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate("");
+    setOpenAddNewExpenseForm(true);
   };
 
+  const hideNewExpenseHandler = () => {
+    setOpenAddNewExpenseForm(true);
+  };
+
+  const openAddNewExpenseHandler = () => {
+    setOpenAddNewExpenseForm(false);
+  };
+
+  if (openAddNewExpenseForm) {
+    return <button onClick={openAddNewExpenseHandler}>Add New Expense</button>;
+  }
   return (
     <form onSubmit={submitHandler}>
       <div className={classes.new_expense__controls}>
@@ -88,6 +80,7 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className={classes.new_expense_actions}>
+        <button type="button" onClick={hideNewExpenseHandler}>Cancel</button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
