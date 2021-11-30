@@ -1,7 +1,3 @@
-# Description
-
-React Finance Manager is a small application that filters our expenses by years.
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
